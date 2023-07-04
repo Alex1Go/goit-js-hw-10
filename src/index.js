@@ -27,7 +27,7 @@ function getCatData(evt) {
                 catInfo.innerHTML = pageCatInfo;
                 // loader.style.display = 'none'; 
                 Notiflix.Loading.remove();
-                select.style.marginBottom = '10px'
+                SlimSelect.style.marginBottom = '10px'
             }, 1500);            
         }).catch(() => {
             Notiflix.Report.failure('Ой, щось пішло не так!', '' );
