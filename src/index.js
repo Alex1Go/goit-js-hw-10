@@ -27,7 +27,7 @@ function getCatData(evt) {
                 catInfo.innerHTML = pageCatInfo;
                 // loader.style.display = 'none'; 
                 Notiflix.Loading.remove();
-                select.style.marginBottom = '10px'
+               
             }, 1500);            
         }).catch(() => {
             Notiflix.Report.failure('Ой, щось пішло не так!', '' );
@@ -39,9 +39,9 @@ fetchBreeds()
     .then(cats => {
         cats.map(cat => {
             const option = `<option value ="${cat.id}">${cat.name}</option>`;            
-     
+     select.insertAdjacentHTML('beforeend', option)
         });
-         select.insertAdjacentHTML('beforeend', option)
+         
          new SlimSelect({
             select: '.breed-select'
         });   
@@ -54,6 +54,6 @@ document.body.style.backgroundColor = '#AFEEEE'
 document.body.style.padding = '20px'
 catInfo.style.display = 'flex';
 catInfo.style.gap = '20px';
-
+select.style.marginBottom = '10px'
 
 
