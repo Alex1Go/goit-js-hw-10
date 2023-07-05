@@ -41,7 +41,7 @@ fetchBreeds()
             const option = `<option value ="${cat.id}">${cat.name}</option>`;            
             
         });
-        select.insertAdjacentHTML('beforeend', option)
+        select.insertAdjacentHTML('beforeend', option);
          new SlimSelect({
              select: '.breed-select'
         });   
