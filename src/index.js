@@ -38,14 +38,23 @@ function getCatData(evt) {
 fetchBreeds()
     .then(cats => {
         cats.map(cat => {
-            const option = `<option value ="${cat.id}">${cat.name}</option>`;            
-            
+            const options = `<option value ="${cat.id}">${cat.name}</option>`;
         });
-        select.insertAdjacentHTML('beforeend', option);
-         new SlimSelect({
+        select.insertAdjacentHTML('beforeend', options) 
+        new SlimSelect({
              select: '.breed-select'
-        });   
-    })
+        });
+    }) 
+    // .then(cats => {
+    //     cats.map(cat => {
+    //         const option = `<option value ="${cat.id}">${cat.name}</option>`;            
+            
+    //     });
+    //     select.insertAdjacentHTML('beforeend', option);
+    //      new SlimSelect({
+    //          select: '.breed-select'
+    //     });   
+    // })
     .catch(() => {
         Notiflix.Report.failure('Ой, щось пішло не так!', '' );
         //   error.style.display = 'block';        
