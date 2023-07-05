@@ -1,7 +1,7 @@
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api';
 import Notiflix from 'notiflix';
-// import SlimSelect from 'slim-select';
-// import 'slim-select/dist/slimselect.css';
+import SlimSelect from 'slim-select';
+import 'slim-select/dist/slimselect.css';
 
 const error = document.querySelector('.error');
 const loader = document.querySelector('.loader');
@@ -37,14 +37,14 @@ function getCatData(evt) {
 
 fetchBreeds()
     .then(cats => {
-        cats.map(cat => {
-            const option = `<option value ="${cat.id}">${cat.name}</option>`;            
-            select.insertAdjacentHTML('beforeend', option);
+        const option =cats.map(cat => {
+             return `<option value ="${cat.id}">${cat.name}</option>`;            
+            
         });
-        
-        //  new SlimSelect({
-        //      select: '.breed-select'
-        // });   
+        select.insertAdjacentHTML('beforeend', option);
+         new SlimSelect({
+             select: '.breed-select'
+        });   
     })
     .catch(() => {
         Notiflix.Report.failure('Ой, щось пішло не так!', '' );
